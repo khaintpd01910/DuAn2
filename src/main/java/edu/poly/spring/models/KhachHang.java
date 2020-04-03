@@ -50,7 +50,7 @@ public class KhachHang implements Serializable {
 	private String ghiChu;
 	
 	@OneToOne(mappedBy = "khachHang",cascade = CascadeType.ALL)
-	private Set<HoaDon> hoaDon;
+	private HoaDon hoaDon;
 
 	public String getMa() {
 		return ma;
@@ -132,16 +132,16 @@ public class KhachHang implements Serializable {
 		this.ghiChu = ghiChu;
 	}
 
-	public Set<HoaDon> getHoaDon() {
+	public HoaDon getHoaDon() {
 		return hoaDon;
 	}
 
-	public void setHoaDon(Set<HoaDon> hoaDon) {
+	public void setHoaDon(HoaDon hoaDon) {
 		this.hoaDon = hoaDon;
 	}
 
 	public KhachHang(String ma, String ten, String taiKhoan, String matKhau, String email, String hinh,
-			String soDienThoai, String diaChi, Date ngayTao, String ghiChu, Set<HoaDon> hoaDon) {
+			String soDienThoai, String diaChi, Date ngayTao, String ghiChu, HoaDon hoaDon) {
 		super();
 		this.ma = ma;
 		this.ten = ten;

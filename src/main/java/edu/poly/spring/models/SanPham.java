@@ -67,6 +67,142 @@ public class SanPham implements Serializable {
 	private NhaCungCap nhaCungCap;
 	
 	@OneToOne(mappedBy = "sanPham", cascade = CascadeType.ALL)
-	private Set<HoaDonChiTiet> hoaDonChiTiet;
+	private HoaDonChiTiet hoaDonChiTiet;
+
+	public String getMa() {
+		return ma;
+	}
+
+	public void setMa(String ma) {
+		this.ma = ma;
+	}
+
+	public String getTen() {
+		return ten;
+	}
+
+	public void setTen(String ten) {
+		this.ten = ten;
+	}
+
+	public String getHinh() {
+		return hinh;
+	}
+
+	public void setHinh(String hinh) {
+		this.hinh = hinh;
+	}
+
+	public Date getNgayDang() {
+		return ngayDang;
+	}
+
+	public void setNgayDang(Date ngayDang) {
+		this.ngayDang = ngayDang;
+	}
+
+	public Float getGiamGia() {
+		return giamGia;
+	}
+
+	public void setGiamGia(Float giamGia) {
+		this.giamGia = giamGia;
+	}
+
+	public Float getGia() {
+		return gia;
+	}
+
+	public void setGia(Float gia) {
+		this.gia = gia;
+	}
+
+	public Date getNgayBatDau() {
+		return ngayBatDau;
+	}
+
+	public void setNgayBatDau(Date ngayBatDau) {
+		this.ngayBatDau = ngayBatDau;
+	}
+
+	public Date getNgayKetThuc() {
+		return ngayKetThuc;
+	}
+
+	public void setNgayKetThuc(Date ngayKetThuc) {
+		this.ngayKetThuc = ngayKetThuc;
+	}
+
+	public String getMoTa() {
+		return moTa;
+	}
+
+	public void setMoTa(String moTa) {
+		this.moTa = moTa;
+	}
+
+	public Boolean getTinhTrang() {
+		return tinhTrang;
+	}
+
+	public void setTinhTrang(Boolean tinhTrang) {
+		this.tinhTrang = tinhTrang;
+	}
+
+	public String getGhiChu() {
+		return ghiChu;
+	}
+
+	public void setGhiChu(String ghiChu) {
+		this.ghiChu = ghiChu;
+	}
+
+	public DanhMuc getDanhMuc() {
+		return danhMuc;
+	}
+
+	public void setDanhMuc(DanhMuc danhMuc) {
+		this.danhMuc = danhMuc;
+	}
+
+	public NhaCungCap getNhaCungCap() {
+		return nhaCungCap;
+	}
+
+	public void setNhaCungCap(NhaCungCap nhaCungCap) {
+		this.nhaCungCap = nhaCungCap;
+	}
+
+	public HoaDonChiTiet getHoaDonChiTiet() {
+		return hoaDonChiTiet;
+	}
+
+	public void setHoaDonChiTiet(HoaDonChiTiet hoaDonChiTiet) {
+		this.hoaDonChiTiet = hoaDonChiTiet;
+	}
+
+	public SanPham(String ma, String ten, String hinh, Date ngayDang, Float giamGia, Float gia, Date ngayBatDau,
+			Date ngayKetThuc, String moTa, Boolean tinhTrang, String ghiChu, DanhMuc danhMuc, NhaCungCap nhaCungCap,
+			HoaDonChiTiet hoaDonChiTiet) {
+		super();
+		this.ma = ma;
+		this.ten = ten;
+		this.hinh = hinh;
+		this.ngayDang = ngayDang;
+		this.giamGia = giamGia;
+		this.gia = gia;
+		this.ngayBatDau = ngayBatDau;
+		this.ngayKetThuc = ngayKetThuc;
+		this.moTa = moTa;
+		this.tinhTrang = tinhTrang;
+		this.ghiChu = ghiChu;
+		this.danhMuc = danhMuc;
+		this.nhaCungCap = nhaCungCap;
+		this.hoaDonChiTiet = hoaDonChiTiet;
+	}
+
+	public SanPham() {
+		super();
+	}
 	
 }
