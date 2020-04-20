@@ -1,37 +1,31 @@
-package edu.poly.spring.models;
+package edu.poly.spring.dtos;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
-@Entity
-public class QuanLy implements Serializable {
-	@Id
-	@Column(length = 50, name = "TaiKhoan")
+public class QuanLyDTO implements Serializable {
+	
+	@NotNull
 	private String taiKhoan;
 	
-	@Column(length = 50, name = "MatKhau")
+	@NotNull
+	@Min(value = 5)
 	private String matKhau;
 	
-	@Column(length = 50,name = "Email")
+	@NotNull
+	@Email
 	private String email;
 	
-	@Column(length = 15, name = "SoDienThoai")
+	@NotNull
+	@Size(min = 0, max = 9)
+	@Pattern(regexp = "[0-9]")
 	private String soDienThoai;
-
-	public QuanLy(String taiKhoan, String matKhau, String email, String soDienThoai) {
-		super();
-		this.taiKhoan = taiKhoan;
-		this.matKhau = matKhau;
-		this.email = email;
-		this.soDienThoai = soDienThoai;
-	}
-
-	public QuanLy() {
-		super();
-	}
 
 	public String getTaiKhoan() {
 		return taiKhoan;
@@ -64,5 +58,4 @@ public class QuanLy implements Serializable {
 	public void setSoDienThoai(String soDienThoai) {
 		this.soDienThoai = soDienThoai;
 	}
-	
 }

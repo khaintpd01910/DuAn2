@@ -1,65 +1,47 @@
-package edu.poly.spring.models;
+package edu.poly.spring.dtos;
 
 import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-@Entity
-public class SuKien implements Serializable{
-	@Id
-	@Column(name = "Ma", length = 10)
+public class SuKienDTO implements Serializable {
+
 	private String ma;
-	
-	@Column(name = "Ten",length = 50)
+
+	@NotNull
+	@NotEmpty(message = "Ten đang rỗng")
 	private String ten;
-	
-	@Column(name = "GiamGia")
+
+	@NotNull
 	private float giamGia;
-	
-	@Column(name = "NgayDang")
+
+	@NotNull
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date ngayDang;
-	
-	@Column(name = "NgayBatDau")
+
+	@NotNull
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date ngayBatDau;
-	
-	@Column(name = "NgayKetThuc")
+
+	@NotNull
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date ngayKetThuc;
-	
-	@Column(name = "MoTa", length = 200)
+
+	@NotNull
 	private String moTa;
-	
-	@Column(name = "GhiChu", length = 200)
+
+	@NotNull
 	private String ghiChu;
-
-	public SuKien(String ma, String ten, float giamGia, Date ngayDang, Date ngayBatDau, Date ngayKetThuc, String moTa,
-			String ghiChu) {
-		super();
-		this.ma = ma;
-		this.ten = ten;
-		this.giamGia = giamGia;
-		this.ngayDang = ngayDang;
-		this.ngayBatDau = ngayBatDau;
-		this.ngayKetThuc = ngayKetThuc;
-		this.moTa = moTa;
-		this.ghiChu = ghiChu;
-	}
-
-	public SuKien() {
-		super();
-	}
 
 	public String getMa() {
 		return ma;
