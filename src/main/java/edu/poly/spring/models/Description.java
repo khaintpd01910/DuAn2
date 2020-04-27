@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -11,8 +13,8 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Description implements Serializable{
 	@Id
-	@Column(name = "id",length = 10)
-	private String id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	
 	@Column(name = "fontImage", length = 100)
 	private String fontImage;
@@ -20,17 +22,11 @@ public class Description implements Serializable{
 	@Column(name = "backImage",length = 100)
 	private String backImage;
 	
-	@Column(name = "type", length = 50)
-	private String type;
-	
 	@Column(name = "color", length = 50)
 	private String color;
 	
 	@Column(name = "size", length = 50)
 	private String size;
-	
-	@Column(name = "ages")
-	private Boolean ages;
 	
 	@Column(name = "amount")
 	private int amount;
@@ -40,13 +36,13 @@ public class Description implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "idSanPham")
-	private Products products;
+	private Product product;
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -66,13 +62,6 @@ public class Description implements Serializable{
 		this.backImage = backImage;
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
 
 	public String getColor() {
 		return color;
@@ -90,19 +79,13 @@ public class Description implements Serializable{
 		this.size = size;
 	}
 
-	public Boolean getAges() {
-		return ages;
-	}
+	
 
-	public void setAges(Boolean ages) {
-		this.ages = ages;
-	}
-
-	public int getAmount() {
+	public Integer getAmount() {
 		return amount;
 	}
 
-	public void setAmount(int amount) {
+	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
 
@@ -114,27 +97,25 @@ public class Description implements Serializable{
 		this.note = note;
 	}
 
-	public Products getProducts() {
-		return products;
+	public Product getProducts() {
+		return product;
 	}
 
-	public void setProducts(Products products) {
-		this.products = products;
+	public void setProducts(Product product) {
+		this.product = product;
 	}
 
-	public Description(String id, String fontImage, String backImage, String type, String color, String size,
-			Boolean ages, int amount, String note, Products products) {
+	public Description(Integer id, String fontImage, String backImage,  String color, String size,
+			 Integer amount, String note, Product product) {
 		super();
 		this.id = id;
 		this.fontImage = fontImage;
-		this.backImage = backImage;
-		this.type = type;
+		this.backImage = backImage;	
 		this.color = color;
 		this.size = size;
-		this.ages = ages;
 		this.amount = amount;
 		this.note = note;
-		this.products = products;
+		this.product = product;
 	}
 
 	public Description() {
