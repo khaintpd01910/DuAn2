@@ -51,10 +51,10 @@ public class Bill implements Serializable{
 	private float transportFee;
 	
 	@OneToOne
-	@JoinColumn(name = "idcustomer")
+	@JoinColumn(name = "customerId")
 	private Customer customer;
 
-	@OneToMany(mappedBy = "hoaDon",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "bill",cascade = CascadeType.ALL)
 	private Set<BillDetail> billDetail;
 
 	public Integer getId() {

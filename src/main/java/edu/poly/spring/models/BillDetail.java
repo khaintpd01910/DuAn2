@@ -30,6 +30,9 @@ public class BillDetail implements Serializable{
 	@JoinColumn(name = "productId")
 	private Product product;
 	
+	@ManyToOne
+	@JoinColumn(name = "billId")
+	private Bill bill;
 	public BillDetail() {
 		super();
 	}
@@ -92,9 +95,5 @@ public class BillDetail implements Serializable{
 		this.bill = bill;
 	}
 
-	@ManyToOne
-	@JoinColumn(name = "billId")
-	private Bill bill;
-	
 }
 	

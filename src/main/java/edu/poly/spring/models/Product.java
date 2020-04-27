@@ -63,15 +63,39 @@ public class Product implements Serializable {
 	private String note;
 	
 	@ManyToOne
-	@JoinColumn(name = "idDanhMuc")
+	@JoinColumn(name = "categoryId")
 	private Category category;
 	
 	@ManyToOne
-	@JoinColumn(name = "idCungCap")
+	@JoinColumn(name = "supplyId")
 	private Supply supply;
 	
-	@OneToOne(mappedBy = "sanPham", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
 	private BillDetail billDetail;
+
+	public Product(Integer id, String name, String image, Date dateSubmitted, Float discount, Float price,
+			Date startDay, Date endDay, String description, Boolean status, String note, Category category,
+			Supply supply, BillDetail billDetail) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.image = image;
+		this.dateSubmitted = dateSubmitted;
+		this.discount = discount;
+		this.price = price;
+		this.startDay = startDay;
+		this.endDay = endDay;
+		this.description = description;
+		this.status = status;
+		this.note = note;
+		this.category = category;
+		this.supply = supply;
+		this.billDetail = billDetail;
+	}
+
+	public Product() {
+		super();
+	}
 
 	public Integer getId() {
 		return id;
@@ -161,52 +185,29 @@ public class Product implements Serializable {
 		this.note = note;
 	}
 
-	public Category getCategories() {
+	public Category getCategory() {
 		return category;
 	}
 
-	public void setCategories(Category category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 
-	public Supply getSupplier() {
+	public Supply getSupply() {
 		return supply;
 	}
 
-	public void setSupplier(Supply supply) {
+	public void setSupply(Supply supply) {
 		this.supply = supply;
 	}
 
-	public BillDetail getBillDetails() {
+	public BillDetail getBillDetail() {
 		return billDetail;
 	}
 
-	public void setBillDetails(BillDetail billDetail) {
+	public void setBillDetail(BillDetail billDetail) {
 		this.billDetail = billDetail;
 	}
 
-	public Product(Integer id, String name, String image, Date dateSubmitted, Float discount, Float price,
-			Date startDay, Date endDay, String description, Boolean status, String note, Category category,
-			Supply supply, BillDetail billDetail) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.image = image;
-		this.dateSubmitted = dateSubmitted;
-		this.discount = discount;
-		this.price = price;
-		this.startDay = startDay;
-		this.endDay = endDay;
-		this.description = description;
-		this.status = status;
-		this.note = note;
-		this.category = category;
-		this.supply = supply;
-		this.billDetail = billDetail;
-	}
-
-	public Product() {
-		super();
-	}
 
 }

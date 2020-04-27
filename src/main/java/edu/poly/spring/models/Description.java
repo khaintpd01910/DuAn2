@@ -35,7 +35,7 @@ public class Description implements Serializable{
 	private String note;
 	
 	@ManyToOne
-	@JoinColumn(name = "idSanPham")
+	@JoinColumn(name = "productId")
 	private Product product;
 
 	public Integer getId() {

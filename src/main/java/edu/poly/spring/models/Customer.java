@@ -27,8 +27,8 @@ public class Customer implements Serializable {
 	@Column(length = 50,name = "name")
 	private String name;
 	
-	@Column(length = 50,name = "TaiKhoan")
-	private String taiKhoan;
+	@Column(length = 50,name = "username")
+	private String username;
 	
 	@Column(length = 50,name = "password")
 	private String password;
@@ -53,7 +53,7 @@ public class Customer implements Serializable {
 	@Column(name = "note",length = 200)
 	private String note;
 	
-	@OneToOne(mappedBy = "khachHang",cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "customer",cascade = CascadeType.ALL)
 	private Bill bill;
 
 	public Integer getId() {
@@ -72,12 +72,12 @@ public class Customer implements Serializable {
 		this.name = name;
 	}
 
-	public String getTaiKhoan() {
-		return taiKhoan;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setTaiKhoan(String taiKhoan) {
-		this.taiKhoan = taiKhoan;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -148,12 +148,12 @@ public class Customer implements Serializable {
 		super();
 	}
 
-	public Customer(Integer id, String name, String taiKhoan, String password, String email, String image, String phone,
+	public Customer(Integer id, String name, String username, String password, String email, String image, String phone,
 			String address, Date dateCreated, String note, Bill bill) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.taiKhoan = taiKhoan;
+		this.username = username;
 		this.password = password;
 		this.email = email;
 		this.image = image;

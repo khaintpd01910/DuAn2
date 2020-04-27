@@ -36,7 +36,7 @@ public class Supply implements Serializable {
 	@Column(name = "note")
 	private String note;
 	
-	@OneToMany(mappedBy = "nhaCungCap",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "supply",cascade = CascadeType.ALL)
 	private Set<Product> product;
 
 	public Integer getId() {
